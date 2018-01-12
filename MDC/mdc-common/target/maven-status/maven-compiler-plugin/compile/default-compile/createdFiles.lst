@@ -1,0 +1,3 @@
+my\mimos\mdc\exceptions\ErrorResponseResource.class
+my\mimos\mdc\enums\StatusType.class
+my\mimos\mdc\exceptions\GlobalExceptionHandler.class

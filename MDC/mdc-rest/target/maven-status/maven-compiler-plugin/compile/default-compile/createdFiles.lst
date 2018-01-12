@@ -1,0 +1,12 @@
+my\mimos\mdc\controller\DeviceController.class
+my\mimos\mdc\controller\TestController.class
+my\mimos\mdc\security\configuration\AppCORSFilter.class
+my\mimos\mdc\context\Application.class
+my\mimos\mdc\controller\QueryController.class
+my\mimos\mdc\security\configuration\AuthEntryPointHandler.class
+my\mimos\mdc\controller\BroadCastController.class
+my\mimos\mdc\controller\ResponseController.class
+my\mimos\mdc\controller\AuthenticationController.class
+my\mimos\mdc\controller\UserController.class
+my\mimos\mdc\security\configuration\WebSecurityConfiguration.class
+my\mimos\mdc\security\configuration\TokenAuthenticationFilter.class

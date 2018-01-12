@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+  <parent>
+	<groupId>my.mimos.mdc</groupId>
+    <artifactId>MDC</artifactId>
+	<version>0.0.1</version>
+  </parent>
+
+  <artifactId>mdc-core</artifactId>    
+  
+  <properties>
+	<java.version>1.8</java.version>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	<maven.compiler.source>1.8</maven.compiler.source>
+	<maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+	
+  <dependencies>
+  
+  	<dependency>
+		<groupId>my.mimos.mdc</groupId>
+		<artifactId>mdc-domain</artifactId>
+		<version>0.0.1</version>
+	</dependency>
+  
+  	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-data-jpa</artifactId>
+	    <version>1.5.6.RELEASE</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework.data</groupId>
+	    <artifactId>spring-data-jpa</artifactId>
+	    <version>1.11.7.RELEASE</version>
+	</dependency>
+	
+  	<dependency>
+		<groupId>org.postgresql</groupId>
+		<artifactId>postgresql</artifactId>
+		<version>9.4-1200-jdbc41</version>
+		<scope>runtime</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<version>1.16.6</version>
+	</dependency>
+	
+	<dependency>
+	   <groupId>ma.glasnost.orika</groupId>
+	   <artifactId>orika-core</artifactId>
+	   <version>1.4.2</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-mail</artifactId>
+	    <version>1.5.6.RELEASE</version>
+	</dependency>
+	
+	<dependency>
+        <groupId>com.querydsl</groupId>
+        <artifactId>querydsl-core</artifactId>
+        <version>4.1.3</version>
+    </dependency>
+    
+	 <dependency> 
+        <groupId>com.querydsl</groupId>
+        <artifactId>querydsl-apt</artifactId> 
+        <version>4.1.3</version>
+    </dependency>
+    
+    <dependency> 
+        <groupId>com.querydsl</groupId>
+        <artifactId>querydsl-jpa</artifactId> 
+        <version>4.1.3</version> 
+    </dependency>
+    
+    <dependency>
+	    <groupId>com.notnoop.apns</groupId>
+	    <artifactId>apns</artifactId>
+	    <version>0.2.3</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>com.google.gcm</groupId>
+	    <artifactId>gcm-server</artifactId>
+	    <version>1.0.0</version>
+	</dependency>
+	
+    
+	
+	</dependencies>
+	
+	<build>
+		<plugins>  
+		  <!-- SPRING JPA - TO GENERATE QUERYDSL CLASSES FOR ENTITIES -->  
+		    <plugin>
+			    <groupId>com.mysema.maven</groupId>
+			    <artifactId>apt-maven-plugin</artifactId>
+			    <executions>
+			        <execution>
+			            <goals>
+			                <goal>process</goal>
+			            </goals>
+			            <configuration>
+			                <outputDirectory>${project.build.directory}/generated-sources/querydsl </outputDirectory>
+			                <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor </processor>
+			            </configuration>
+			        </execution>
+			    </executions>
+			    </plugin>
+		</plugins>
+	</build>
+  
+ 
+</project>
