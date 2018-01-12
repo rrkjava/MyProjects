@@ -1,0 +1,125 @@
+      <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3><small>Home</small></h3>
+              </div>
+
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+
+             <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Recent Dessemination</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <!-- loader -->
+                  <div class="container" style="background:rgba(255,255,255,0.8); z-index:9; height:100%; position:absolute; top:0px;" ng-show="loading">
+                    <div class="loader"></div>
+                  </div>  
+                
+                      
+                      
+                  <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>IOC Message ID</th>
+                          <th>Originator</th>
+                          <th>Target Date</th>
+                          <th>Severity</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                        <tr dir-paginate="x in recentDissemination|itemsPerPage:5"
+                            pagination-id="paginateRecentMessages" >
+                          <td>{{ x.iocMessageId }} </td>
+                          <td>{{ x.originator }} </td>
+                          <td>{{ x.targetDate }} </td>
+                          <td>{{ x.severityLevel }} </td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+
+                     <!-- pagination -->
+                      <dir-pagination-controls  pagination-id="paginateRecentMessages"
+                         max-size="5"
+                         direction-links="true"
+                         boundary-links="true" >
+                      </dir-pagination-controls>
+
+
+
+                  </div>
+                </div>
+</div>
+
+              <div class="clearfix"></div>
+              
+             <!--   <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Recent New User / User Activity</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>User ID</th>
+                          <th>User Email</th>
+                          <th>Last Activity</th>
+                          <th>Agency</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr dir-paginate="y in recentUserActivity|itemsPerPage:5"
+                            pagination-id="paginateRecentUsers" >
+                          <td>{{ y.id}} </td>
+                          <td>{{ y.email}} </td>
+                          <td>{{ y.createdDate }} </td>
+                          <td>{{ y.userGroupType }} </td>
+                        </tr>
+                      </tbody>
+                    </table> -->
+
+                         <!-- pagination -->
+                     <!--  <dir-pagination-controls  pagination-id="paginateRecentUsers"
+                         max-size="5"
+                         direction-links="true"
+                         boundary-links="true" >
+                      </dir-pagination-controls>
+
+                  </div>
+                </div>
+</div> -->
+
+
+            </div>
+          </div>
+        </div>
+
+
+        </div>

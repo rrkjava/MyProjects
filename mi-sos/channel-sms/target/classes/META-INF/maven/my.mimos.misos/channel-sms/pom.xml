@@ -1,0 +1,119 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>my.mimos.misos</groupId>
+		<artifactId>mi-sos</artifactId>
+		<version>0.0.1</version>
+		<relativePath>..</relativePath>
+	</parent>
+	
+	<artifactId>channel-sms</artifactId>
+	<name>channel-sms</name>
+	<url>http://www.mimos.my</url>	
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+	
+	<repositories>
+		<repository>
+	    	<id>Clojars Repository</id>
+	      	<url>http://clojars.org/repo/</url>
+	    </repository>
+	</repositories>
+	
+	<dependencies>
+		
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    <version>4.5.2</version>
+		</dependency>
+				
+		<dependency>
+			<groupId>my.mimos.misos</groupId>
+			<artifactId>misos-core</artifactId>
+			<version>0.0.1</version>			
+		</dependency>
+		
+	</dependencies>
+	
+	<build>
+		<plugins>			
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>			
+		</plugins>		
+	</build>
+	
+		
+	<!-- Build profiles -->
+	
+	<profiles>
+	    <profile>
+	        <id>dev</id>
+	         <activation>
+	            <activeByDefault>true</activeByDefault>
+	        </activation>
+	        <properties>          
+	            <build.profile.id>dev</build.profile.id>
+	        </properties>
+	        <build>
+	            <resources>
+	                <resource>
+	                    <directory>src/main/resources/dev</directory>
+	                </resource>
+	            </resources>
+	        </build>
+	    </profile>
+    
+	    <profile>
+	        <id>prod1</id>        
+	        <properties>           
+	            <build.profile.id>prod1</build.profile.id>
+	        </properties>
+	        <build>
+	            <resources>
+	                <resource>
+	                    <directory>src/main/resources/prod1</directory>                    
+	                </resource>                
+	            </resources> 
+	        </build>       
+	    </profile>
+	    
+	    <profile>
+	        <id>prod2</id>        
+	        <properties>           
+	            <build.profile.id>prod2</build.profile.id>
+	        </properties>
+	        <build>
+	            <resources>
+	                <resource>
+	                    <directory>src/main/resources/prod2</directory>                    
+	                </resource>                
+	            </resources> 
+	        </build>       
+	    </profile>
+	    
+	    <profile>
+	        <id>staging</id>
+	        <properties>
+	           <build.profile.id>staging</build.profile.id>
+	        </properties>
+	        <build>
+		        <resources>
+		                <resource>
+		                    <directory>src/main/resources/staging</directory>                    
+		                </resource>                
+		        </resources> 
+		       </build>
+	    </profile>	    
+	</profiles>
+
+</project>

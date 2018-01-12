@@ -1,0 +1,70 @@
+
+  .switch {
+  
+    position: absolute;
+    width: 155px;
+    height: 35px;
+    text-align: center;
+    margin: -7px -461px 44px -69px;
+    background:rgba(26, 187, 120, 0.44);
+    transition: all 0.2s ease;
+    border-radius: 25px;
+
+  }
+  .switch span {
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    top: 50%;
+    left: 50%;
+    margin: -2px 0px 0px -4px;
+    background: #fff;
+    display: block;
+    transform: rotate(-45deg);
+    transition: all 0.2s ease;
+  }
+  .switch span:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 4px;
+    height: 12px;
+    margin-top: -8px;
+    background: #fff;
+    transition: all 0.2s ease;
+  }
+
+  input[type=radio] {
+    display: none;
+  }
+
+  .switch label {
+    cursor: pointer;
+    color: rgba(0,0,0,0.2);
+    width: 75px;
+    line-height: 37px;
+    
+  }
+ 
+  .inactiveradio:checked ~ .switch {
+    /*background: #eb4f37;*/
+    background: rgba(85, 85, 85, 0.49);
+  }
+ .inactiveradio:checked ~ .switch span {
+    background: #fff;
+    margin-left: -8px;
+  }
+  .inactiveradio:checked ~ .switch span:after {
+    background: #fff;
+    height: 20px;
+    margin-top: -8px;
+    margin-left: 8px;
+  }
+  .inactiveradio:checked ~ .switch label[for^="active"] {
+    color: #fff;
+  }
+  .inactiveradio:checked ~ .switch label[for^="inactive"] {
+    color: #fff;
+  }
+
+

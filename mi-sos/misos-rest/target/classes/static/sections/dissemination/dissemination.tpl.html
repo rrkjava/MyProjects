@@ -1,0 +1,168 @@
+    <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3><small>Home > Manage Dissemination...</small></h3>
+              </div>
+
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+
+              <!--List of messages -->
+              <div class="clearfix"></div>
+              
+               <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>List of Messages</h2>   
+
+                      <div class="col-md-2 col-sm-2 col-xs-12 pull-right top_search"> 
+                        <div class="input-group">
+                          <input type="text" ng-model="search" class="form-control" placeholder="Search">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                          </span>
+                        </div>
+                      </div>
+
+                  <div class="clearfix"></div>
+                  </div>
+
+                  <div class="x_content" ng-if="messages.length<1" >
+                   No Results
+                  </div>
+
+                  <div class="x_content" ng-if="messages.length>0" >
+                  
+                  <!-- loader -->
+                  <div class="container" style="background:rgba(255,255,255,0.8); z-index:9; height:100%; position:absolute; top:0px;" ng-show="loading">
+                    <div class="loader"></div>
+                  </div> 
+                   
+
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <!-- <th ng-click="sort('iocMessageId')">ID <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('originator')">Originator <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('targetChannel')">Channel <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('city')">Location <i class="fa fa-unsorted"></i></th>                          
+                          <th ng-click="sort('publishDate')">Publish Date <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('severityLevel')">Severity <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('publishStatus')">Status <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('recipientCount')">Receipients <i class="fa fa-unsorted"></i></th> -->
+                          <th>ID</th>
+                          <th>Originator</th>
+                          <th>Channel</th>
+                          <th>Location</th>                          
+                          <th>Publish Date</th>
+                          <th>Notification Type</th>
+                          <th>Severity</th>
+                          <th>Status</th>
+                          <!-- <th>Receipients</th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr dir-paginate="x in messages|filter:search|itemsPerPage:5"
+                            pagination-id="paginateMessages" >
+                       <!--  <tr dir-paginate="x in messages|orderBy:sortKey:reverse|filter:search|itemsPerPage:5"
+                            pagination-id="paginateMessages" > -->
+
+                          <td>{{ x.iocMessageId }} </td>                                        
+                          <td>{{ x.originator }} </td>
+                          <td>{{ x.channelType }}</td>     
+                          <td> {{ x.city }}</td>   
+                          <td> {{ x.publishDate }}</td> 
+                          <td>{{x.notificationType}}</td>              
+                          <td>
+
+                             <button type="button" ng-class="{'btn btn-round btn-warning': x.severityLevel === 'Warning',    'btn btn-round btn-danger': x.severityLevel === 'Alert',
+                             'btn btn-round btn-info': x.severityLevel === 'Normal'}"> 
+                             {{ x.severityLevel }}</button>
+                            
+                          </td>
+                         <!--  <td> {{ x.publishStatus }}</td>  -->
+                          <td ng-switch on="x.publishStatus">
+                            <span ng-switch-when="true">
+<i style="font-size: 2.5em; color: #26b99a;" class="fa fa-check-circle fa-3" aria-hidden="true"></i>
+                            </span>
+                            <span ng-switch-when="false">
+<i style="font-size: 2.5em; color: #d9534f;" class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            </span>
+                            <span ng-switch-default>Unknown</span>
+                          </td>
+
+                          <!-- <td>{{ x.recipientCount }}</td> -->
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <!-- pagination -->
+                    <dir-pagination-controls  pagination-id="paginateMessages"
+                       max-size="5"
+                       direction-links="true"
+                       boundary-links="true" >
+                    </dir-pagination-controls>
+                  </div>
+                 
+                </div>
+            </div>  
+            <!-- list of messages ends-->
+
+
+
+            <!-- advanced search-->
+
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                      <div class="x_title">
+                        <h2>Advanced Search Criteria</h2>
+
+                        <div class="clearfix"></div>
+                      </div>
+                      <div class="x_content">
+                       <div class="row jps-fieldbox">
+                         <div class="col-md-12 col-sm-12 col-xs-12">
+
+                         <div class="col-md-6">
+                             <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                              <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                              <span></span> <b class="caret"></b>
+                            </div>
+                         </div>
+                         
+
+                          <div class="col-md-2 col-sm-6 col-xs-12">
+                            <select name="channel" id="channel" ng-options="option.channelType as option.channelType for option in getChannelType" ng-model="getChannel" class="form-control">
+                              <option value="">Channel Type</option>
+                            </select>
+                          </div>
+
+                          <div class="col-md-2 col-sm-6 col-xs-12">
+                            <select name="severity" id="severity" ng-options="option.severityLevel as option.severityLevel for option in getSeverityLevel" ng-model="getSeverity" class="form-control">
+                              <option value="">Severity</option>
+                            </select>
+                          </div>
+
+                        <div><span class="btn btn-success" ng-click="submit();">Search</span> </div> 
+                      </div>
+
+
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            <!-- search ends -->
+
+
+          </div>
+        </div>
+</div>

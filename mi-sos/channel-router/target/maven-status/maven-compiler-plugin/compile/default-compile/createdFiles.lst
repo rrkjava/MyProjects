@@ -1,0 +1,13 @@
+my\mimos\misos\dissemination\router\ChannelRouterFactory.class
+my\mimos\misos\dissemination\service\RouterService.class
+my\mimos\misos\dissemination\router\PublicPortalChannel.class
+my\mimos\misos\dissemination\router\MapChannel.class
+my\mimos\misos\dissemination\router\ChannelRouterBase.class
+my\mimos\misos\dissemination\router\EmailChannel.class
+my\mimos\misos\dissemination\router\TwitterChannel.class
+my\mimos\misos\dissemination\router\MobileChannel.class
+my\mimos\misos\dissemination\service\impl\RouterServiceImpl.class
+my\mimos\misos\dissemination\router\FacebookChannel.class
+my\mimos\misos\dissemination\router\FaxChannel.class
+my\mimos\misos\dissemination\router\SirenChannel.class
+my\mimos\misos\dissemination\router\SmsChannel.class

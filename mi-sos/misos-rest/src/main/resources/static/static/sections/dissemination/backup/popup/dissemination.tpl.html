@@ -1,0 +1,161 @@
+    <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3><small>Home > Manage Dissemination...</small></h3>
+              </div>
+
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+
+              <!--List of messages -->
+              <div class="clearfix"></div>
+              
+               <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>List of Messages</h2>   
+
+                      <div class="col-md-2 col-sm-2 col-xs-12 pull-right top_search"> 
+                        <div class="input-group">
+                          <input type="text" ng-model="search" class="form-control" placeholder="Search message...">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                          </span>
+                        </div>
+                      </div>
+
+                  <div class="clearfix"></div>
+                  </div>
+
+                  <div class="x_content">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th ng-click="sort('iocMessageId')">ID <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('messageContent')">Message <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('createdDate')">Time <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('originator')">Originator <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('targetChannel')">Channel <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('severityLevel')">Server <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('city')">Impacted <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('recipientCount')">Receipient <i class="fa fa-unsorted"></i></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr dir-paginate="x in messages|orderBy:sortKey:reverse|filter:search|itemsPerPage:5"
+                            pagination-id="paginateMessages" >
+                          <td>{{ x.iocMessageId }} </td>
+                          <td>
+                            <span style="display:block;text-overflow: ellipsis;width: 200px;overflow: hidden; white-space:nowrap;">
+                                     {{ x.messageContent }}
+                            </span> 
+                          </td>
+                          <td>{{ x.createdDate }}</td>
+                          <td>{{ x.originator }} </td>
+                          <td>{{ x.targetChannel }}</td>                          
+                          <td>
+
+                             <button type="button" ng-class="{'btn btn-round btn-danger': x.severityLevel === 'Warning',    'btn btn-round btn-warning': x.severityLevel === 'Alert',
+                             'btn btn-round btn-success': x.severityLevel === 'Normal'}"> 
+                             {{ x.severityLevel }}</button>
+                            
+                          </td>
+                          <td> {{ x.city }}</td>
+                          <td>{{ x.recipientCount }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <!-- pagination -->
+                    <dir-pagination-controls  pagination-id="paginateMessages"
+                       max-size="5"
+                       direction-links="true"
+                       boundary-links="true" >
+                    </dir-pagination-controls>
+                  </div>
+                 
+                </div>
+            </div>  
+            <!-- list of messages ends-->
+
+          
+            <!-- list of message templates -->
+
+              <div class="clearfix"></div>
+              
+               <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Message Template</h2>
+                    <div class="pull-right btn-large">
+                      <i ng-click="showAddTemplate()" class="fa fa-plus-circle"></i>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>ID <i class="fa fa-unsorted"></i></th>
+                          <th>Message <i class="fa fa-unsorted"></i></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr dir-paginate="y in templates|orderBy:sortKey:reverse|itemsPerPage:3" 
+                        pagination-id="paginateTemplates">
+                          <td>{{ y.id }}</td> 
+                          <td>{{ y.messageTempate }}</td>
+                          <td>
+                            <div class="btn-group  btn-group-sm">
+                              <button class="btn btn-default" type="submit">
+                               <i class="fa fa-pencil"></i>
+                              </button>
+                              <button class="btn btn-default" type="button">
+                               <i class="fa fa-trash-o"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>  
+
+                     <!-- GUINEA PIG-->
+                        <form name="templateForm" >
+                          
+                          <input type="hidden" ng-model="template.id" />   
+                          <tr>
+
+                            <td><input type="text" ng-model="template.id" id="templateId" placeholder=" Message template Id"/></td>
+                            <td><input type="text" ng-model="template.messageTempate" id="messageTempate" placeholder=" Message template Name"/></td>                                 
+                            
+                            <td><button type="submit" class="btn btn-round btn-success" ng-click="submit(template.id,template.messageTempate)" >Add Template</button></td>
+
+                          </tr> 
+                        </form>
+                       
+                      <!-- -->
+
+                      </tbody>
+                    </table>
+
+                    <!-- pagination -->
+                    <dir-pagination-controls pagination-id="paginateTemplates"
+                       max-size="3"
+                       direction-links="true"
+                       boundary-links="true" >
+                    </dir-pagination-controls>
+
+                  </div>
+
+                  </div>
+            </div>
+
+
+          </div>
+        </div>
+</div>

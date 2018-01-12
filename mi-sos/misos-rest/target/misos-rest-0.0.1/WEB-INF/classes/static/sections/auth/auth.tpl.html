@@ -1,0 +1,13 @@
+ 
+ <div id="uap" ng-controller="AuthController">
+ <!-- <%
+    String pidValue=request.getHeader("REMOTE_USER");
+  %> -->
+  <!-- <script>
+    var pid = '${header["REMOTE_USER"]}';
+    alert("wdw"+pid);
+  </script> -->
+   <input id="auth" ng-model="uap" type="hidden" style="display:none" value="${header['REMOTE_USER']}" />
+   
+  <!--  <input type="text" id="username" ng-model="username" value="${header['REMOTE_USER']}" > -->
+   </div>

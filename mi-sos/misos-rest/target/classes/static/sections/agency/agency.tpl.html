@@ -1,0 +1,135 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3><small>Home > Agencies</small></h3>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+     <div class="col-md-12 col-sm-12 col-xs-12">
+     <!-- Agency -->
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>Agencies</h2>
+          <ul class="nav navbar-right panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+            <li><a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <!-- loader -->
+          <div class="container" style="background:rgba(255,255,255,0.8); z-index:9; height:100%; position:absolute; top:0px;" ng-show="loading">
+            <div class="loader"></div>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12">
+           <form name="agencyfrom">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <input type="text" ng-model="getAgencyName" ng-required="true" class="form-control" placeholder="Agency Name" />
+            </div>
+            <div class="col-md-2 col-sm-6 col-xs-12">
+            <button class="btn btn-success" ng-click="agencyfrom.$valid && crateAgency()" title="Create Agency" tooltip><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+          </form>
+        </div>
+          <table class="table table-striped">
+            <thead>
+              <th>Agency Id</th>
+              <th>Agency Name</th>
+              <th></th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="agency in agencies" ng-include="getTemplate(agency)">
+              </tr>
+              <script type="text/ng-template" id="display">
+                <td class="col-md-3" ng-model="agencyId">{{agency.agencyId}}</td>
+                <td class="col-md-3" ng-model="agencyName">{{agency.agency}}</td>
+
+                <td>
+                  <button class="btn btn-primary" ng-click="editAgency(agency)" title="Edit" tooltip><span class="pull-right glyphicon glyphicon-pencil"></span></button>
+                  <button class="btn btn-danger" ng-click="removeAgency($index)" title="Delete" tooltip><span class="pull-right glyphicon glyphicon-trash"></span></button>
+                </td>
+              </script>
+              <script type="text/ng-template" id="edit">
+               <td class="col-md-3">{{selectedAgency.selected.agencyId}}</td>
+               <td class="col-md-3"><input type="text" ng-model="selectedAgency.selected.agency" class="col-md-3 form-control" /></td>
+               <td>
+                <button class="btn btn-success" ng-click="saveAgency($index)" title="Save" tooltip><span class="glyphicon glyphicon-ok"></span></button>
+                <button class="btn btn-danger" ng-click="reset()" title="Cancel" tooltip><span class="glyphicon glyphicon-remove"></span></button>
+              </td>
+            </script>
+          </tbody>
+        </table>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <!-- Domain -->
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Domains</h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+          <li><a class="close-link"><i class="fa fa-close"></i></a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <form name="domainfrom">
+            <div class="col-md-2 col-sm-6 col-xs-12">
+              <select name="agency" id="agency" ng-options="option.agencyId as option.agency for option in agencies" ng-model="getAgency" ng-required="true" class="form-control">
+                <option value="">Agency</option>
+              </select>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <input type="text" ng-model="getDomain" ng-required="true" class="form-control" placeholder="Agency Name" />
+            </div>
+            <div class="col-md-2 col-sm-6 col-xs-12">
+
+              <button class="btn btn-success" ng-click="domainfrom.$valid && crateDomain()" title="Create Domain" tooltip><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+          </form>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <th>Domain Id</th>
+            <th>Domain</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="domain in domains" ng-include="getDomainTemplate(domain)">
+            </tr>
+            <script type="text/ng-template" id="domainDisplay">
+              <td class="col-md-3" ng-model="agencyId">{{domain.domainId}}</td>
+              <td class="col-md-3" ng-model="agencyName">{{domain.emailDomain}}</td>
+
+              <td>
+                <button class="btn btn-primary" ng-click="editDomain(domain)" title="Edit" tooltip><span class="pull-right glyphicon glyphicon-pencil"></span></button>
+                <button class="btn btn-danger" ng-click="removeDomain($index)" title="Delete" tooltip><span class="pull-right glyphicon glyphicon-trash"></span></button>
+              </td>
+            </script>
+            <script type="text/ng-template" id="domainEdit">
+             <td class="col-md-3">{{selectedDomain.selected.domainId}}</td>
+             <td class="col-md-3"><input type="text" ng-model="selectedDomain.selected.emailDomain" class="form-control" /></td>
+             <td>
+              <button class="btn btn-success" ng-click="saveDomain($index)" title="Save" tooltip><span class="glyphicon glyphicon-ok"></span></button>
+              <button class="btn btn-danger" ng-click="resetDomain()" title="Cancel" tooltip><span class="glyphicon glyphicon-remove"></span></button>
+            </td>
+          </script>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+      

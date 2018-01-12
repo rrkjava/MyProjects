@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="misos-rest-0.0.1">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <dependent-module archiveName="channel-router-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/channel-router/channel-router">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="misos-common-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/misos-common/misos-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="misos-domain-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/misos-domain/misos-domain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="misos-core-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/misos-core/misos-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="channel-facebook-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/channel-facebook/channel-facebook">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="channel-twitter-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/channel-twitter/channel-twitter">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="channel-sms-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/channel-sms/channel-sms">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="channel-siren-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/channel-siren/channel-siren">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="channel-email-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/channel-email/channel-email">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="channel-fax-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/channel-fax/channel-fax">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="channel-publicportal-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/channel-publicportal/channel-publicportal">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="channel-mobile-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/channel-mobile/channel-mobile">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="misos-rest"/>
+        <property name="java-output-path" value="/misos-rest/target/classes"/>
+    </wb-module>
+</project-modules>

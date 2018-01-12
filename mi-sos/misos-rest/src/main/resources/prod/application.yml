@@ -1,0 +1,51 @@
+AdminConfig:
+    url: https://gateway.water.gov.my/misos-admin/secure/index.html#/statistics  
+    
+PublicPortal:
+    url: https://integ.water.gov.my/ITS/IntegrationService.svc/
+    service: disseResponseReceived  
+    
+MobileGateway:
+    url: http://10.1.70.84:8080/mobilegateway/
+    service: transactiondata/disseminate/
+    
+AdService:
+    url: https://crowd.water.gov.my/ad-service                   
+    
+IntegrationServiceConfig:
+  baseURL: https://integ.water.gov.my/ITS
+  service: /IntegrationService.svc
+  
+  messageTypeService: /messageType
+  refTemplateIdService: /messageTemplate
+  messageFormatService: /messageFormat  
+  
+  targetUserGroupsService: /userGroup
+  channelTypeService: /targetChannelType   
+  severityLevelService: /severityLevel
+        
+  certainityLevelService: /certaintyLevel
+  locationTypeService: /locationType
+  notificationTypeService: /notificationType
+
+  messageTypeByCodeService: /messageTypeByCode
+  refTemplateIdByIdService: /messageTemplateById
+  messageFormatByCodeService: /messageFormatByCode    
+  
+  targetUserGroupsByCodeService: /userGroupByCode
+  channelTypeByCodeService: /targetChannelTypeByCode   
+  severityLevelByCodeService: /severityLevelByCode
+        
+  certainityLevelByCodeService: /certaintyLevelByCode
+  locationTypeByCodeService: /locationTypeByCode
+  notificationTypeByCodeService: /notificationTypeByCode
+  
+  userDetailsByPoiGroupType: /userDetailsByPoiGroupType
+  userDetailsAll : /userDetailsAll
+  channelRecipients : /disseDestinationByDisseFilter
+  disseminationImageByDisseMessage : /disseminationImageByDisseMessage
+  
+  applicationAlertInsertUpdateById : /applicationAlertInsertUpdateById
+  socialAccountByType : /socialAccountByType
+
+    

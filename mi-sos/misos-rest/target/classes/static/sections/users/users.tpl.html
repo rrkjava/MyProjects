@@ -1,0 +1,142 @@
+       <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3><small>Home > Manage User</small></h3>
+              </div>
+
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>List of Internal Users</h2>
+
+                     <div class="col-md-2 col-sm-2 col-xs-12 pull-right top_search">
+                      <div class="input-group">
+                        <input type="text" ng-model="search" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                      </div>
+                    </div>
+               
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="x_content" ng-if="users.length<1" >
+                   No Results
+                  </div>
+
+                  <div  class="x_content" ng-if="users.length>0">
+                        <!-- loader -->
+                        <div class="container" style="background:rgba(255,255,255,0.8); z-index:9; height:100%; position:absolute; top:0px;" ng-show="loading">
+                          <div class="loader"></div>
+                        </div>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <!-- <th ng-click="sort('id')">ID <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('email')">Email <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('userGroupType')">Agency <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('createdDate')">Created Date <i class="fa fa-unsorted"></i></th>
+                          <th ng-click="sort('status')">Status <i class="fa fa-unsorted"></i></th> -->
+                          <th >ID </th>
+                          <th >Email </th>
+                          <th >Agency </th>
+                          <th >Created Date </th>
+                          <th >Status </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr dir-paginate="x in users|filter:search|itemsPerPage:7"
+                            pagination-id="paginateUsers" ng-hide="x.status == 0">
+                          
+                          <td>{{ x.id }} </td>
+                          <td>{{ x.email }} </td>
+                          <td>{{ x.userGroupType }} </td>
+                          <td>{{ x.createdDate }} </td>
+
+                         <!-- <td>
+                            <input type="radio" ng-click="changeAcess(x.mobileDevice.tokenId,'active')" ng-model="x.status" value="1" />Active &nbsp;
+                            <input type="radio" ng-click="changeAcess(x.mobileDevice.tokenId,'inactive')" ng-model="x.status" value="2"/>Inactive &nbsp;
+                         </td> -->
+
+                         <td>                         
+                          <div class="onoffswitch">
+                            <input type="checkbox" ng-model="x.status"
+                                 ng-true-value="'1'" ng-false-value="'2'"
+                                 name="x.id" class="onoffswitch-checkbox" id="{{x.id}}"
+				ng-change="changeAcess(x.mobileDevice.tokenId,x.status)"
+			     >
+                            <label class="onoffswitch-label" for="{{x.id}}">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                            </label>
+                          </div>
+                         </td>
+                         </tr>
+                      </tbody>
+                    </table>
+
+                     <!-- pagination -->
+                    <dir-pagination-controls  pagination-id="paginateUsers"
+                       max-size="7"
+                       direction-links="true"
+                       boundary-links="true" >
+                    </dir-pagination-controls>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="clearfix"></div>
+              
+               <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Advanced Search Criteria</h2>
+
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                       <div class="row jps-fieldbox">
+                       
+                       <div class="col-md-6">
+                             <div id="userdaterange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                              <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                              <span></span> <b class="caret"></b>
+                            </div>
+                         </div>
+                         
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                          <select class="form-control" ng-model="userGroup" ng-options="x.agency for x in agencies" 
+                          ng-value="x.agency">
+                            <option value="">Choose user group</option>
+                          </select>
+                        </div>
+                           
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                          <select class="form-control" ng-model="status">
+                            <option value="">Choose Status</option>
+                            <option value="1">active</option>
+                            <option value="2">inactive</option>
+                          </select>
+                        </div>
+                      </div>
+                    <div><span class="btn btn-success" ng-click="searchUsers()">Search</span> </div> 
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>

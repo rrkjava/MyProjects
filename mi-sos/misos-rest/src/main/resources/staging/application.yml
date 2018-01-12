@@ -1,0 +1,51 @@
+AdminConfig:
+    url: https://11.1.32.24/misos-admin/secure/index.html#/statistics
+    
+PublicPortal:
+    url: https://11.1.32.55/ITS2/IntegrationService.svc/
+    service: disseResponseReceived  
+    
+MobileGateway:
+    url: http://10.1.70.84:8080/mobilegateway/
+    service: transactiondata/disseminate/ 
+    
+AdService:
+    url: https://11.1.32.41:9999/ad-service/search            
+    
+IntegrationServiceConfig:
+  baseURL: https://11.1.32.55/ITS2
+  service: /IntegrationService.svc
+  
+  messageTypeService: /messageType
+  refTemplateIdService: /messageTemplate
+  messageFormatService: /messageFormat  
+  
+  targetUserGroupsService: /userGroup
+  channelTypeService: /targetChannelType   
+  severityLevelService: /severityLevel
+        
+  certainityLevelService: /certaintyLevel
+  locationTypeService: /locationType
+  notificationTypeService: /notificationType
+
+  messageTypeByCodeService: /messageTypeByCode
+  refTemplateIdByIdService: /messageTemplateById
+  messageFormatByCodeService: /messageFormatByCode    
+  
+  targetUserGroupsByCodeService: /userGroupByCode
+  channelTypeByCodeService: /targetChannelTypeByCode   
+  severityLevelByCodeService: /severityLevelByCode
+        
+  certainityLevelByCodeService: /certaintyLevelByCode
+  locationTypeByCodeService: /locationTypeByCode
+  notificationTypeByCodeService: /notificationTypeByCode
+  
+  userDetailsByPoiGroupType: /userDetailsByPoiGroupType
+  userDetailsAll : /userDetailsAll
+  channelRecipients : /disseDestinationByDisseFilter
+  disseminationImageByDisseMessage : /disseminationImageByDisseMessage
+  
+  applicationAlertInsertUpdateById : /applicationAlertInsertUpdateById
+  socialAccountByType : /socialAccountByType
+
+    

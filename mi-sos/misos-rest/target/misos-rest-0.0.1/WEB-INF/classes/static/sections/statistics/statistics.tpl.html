@@ -1,0 +1,141 @@
+        <div class="right_col" role="main" ng-app="myApp">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3><small>Home > Report Statistic</small></h3>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Detail Audit Report</h2>
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                      <div class="x_title">
+                        <h2>Advanced Search Criteria</h2>
+
+                        <div class="clearfix"></div>
+                      </div>
+                      <div class="x_content">
+
+                       <div class="row jps-fieldbox">
+                         <div class="col-md-12 col-sm-12 col-xs-12">
+                         
+                          <div class="col-md-6">
+                             <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                              <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                              <span></span> <b class="caret"></b>
+                            </div>
+                         </div>
+
+                          
+                          <div class="col-md-2 col-sm-6 col-xs-12">
+                            <select name="channel" id="channel" ng-options="option.TargetChannelTypeCode as option.TargetChannelType for option in getChannelType" ng-model="getChannel" class="form-control">
+                              <option value="">Channel Type</option>
+                            </select>
+                          </div>
+
+                          <div class="col-md-2 col-sm-6 col-xs-12">
+                            <select name="severity" id="severity" ng-options="option.SeverityLevelCode as option.SeverityLevel for option in getSeverityLevel" ng-model="getSeverity" class="form-control">
+                              <option value="">Severity</option>
+                            </select>
+                          </div>
+
+                        <div><span class="btn btn-success" ng-click="submit();">Generate</span> </div> 
+                      </div>
+
+
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+
+              <div class="row">
+                <div ng-if="Channelmessages.length>0" class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="x_panel">
+                    <!-- loader -->
+                        
+                        <div class="container" style="background:rgba(255,255,255,0.8); z-index:9; height:100%; position:absolute; top:0px;" ng-show="loading">
+                          <div class="loader"></div>
+                        </div> 
+                       
+                    <!-- report header (temp) -->
+                    <div  style="
+                          background-color: rgba(173, 166, 202, 0.35);
+                          color: darkslategray;
+                          height: 50px;
+                          font-size: 20px;
+                          font-weight: bold;
+                          text-align: center;
+                          padding-top: 10px;
+                          border: black;
+                      ">JPS DISSEMINATION AUDIT REPORT
+                      <span style="float:right;background-color: rgba(47, 59, 76, 0.26);" class="btn btn-success" ng-click="downloadAuditReportCSV();"><i class="fa fa-file-excel-o fa-2" aria-hidden="true"></i> XLSX</span>
+                      <span style="float:right;background-color: rgba(47, 59, 76, 0.26);" class="btn btn-success" ng-click="downloadAuditReportDOCX();"><i class="fa fa-file-word-o fa-2" aria-hidden="true"></i> DOCX</span>
+                      <span style="float:right;margin-left:20px;background-color: rgba(47, 59, 76, 0.26);" class="btn btn-success" ng-click="downloadAuditReportPDF();"><i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i> PDF</span>
+                      <span style="float:right;margin-right:20px;font-size:15px;padding-top:5px">
+                        <input type="radio" name="Language" ng-model="Language" ng-change="LangChange('en')" value="en" style="display: inline" /> En
+                        <input type="radio" name="Language" ng-model="Language" ng-change="LangChange('ms')" value="ms" style="display: inline" /> Ms
+                      </span>
+                    </div>
+                      
+                    <!-- -->
+                         
+
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>  
+                          	<th>SNO</th>                       
+                            <th>IOC ID</th>
+                            <th >Message</th>
+                            <th>Channel</th>
+                            <th>Severity</th>  
+                            <th>Target Group</th>                        
+                            <th>Status</th>                            
+                            <th>Publish Date</th>
+                            <th>Recepient Count</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr dir-paginate="result in Channelmessages|itemsPerPage: pageSize" current-page="currentPage"
+                          pagination-id="paginateMessages" >
+                          <td>{{(currentPage-1)*pageSize +$index+1}} </td>
+                         <td>{{ result.iocMessageId }} </td>
+                         <td style="width: 350px;">{{ result.messageContent }}</td>
+                         <td>{{ result.channelType }}</td>                          
+                         <td>{{ result.severityLevel }}</td>
+                         <td>{{ result.targetGroup }}</td>
+                         <td>{{ result.publishStatus == 'true' ? 'success' : 'failure' }}</td>
+                         <td>{{ result.publishDate }}</td>
+                         <td>{{ result.recipientCount }}</td>
+                       </tr>
+
+                     </tbody>
+                   </table>
+                   <!-- pagination -->
+                   <dir-pagination-controls  pagination-id="paginateMessages"
+                   max-size="8"
+                   direction-links="true"
+                   boundary-links="true" >
+                 </dir-pagination-controls>
+               </div>
+             </div>
+           </div>
+         </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
